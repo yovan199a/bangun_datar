@@ -20,17 +20,43 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.green
             ),
-            child: Text("Persegi"),
-          ),
-          Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            decoration: BoxDecoration(
-                color: Colors.green
+            child: Column(
+              children: [
+                Image.asset("assets/persegi.png",height: 110,),
+                Text("Persegi"),
+              ],
             ),
-            child: Text("Segitiga"),
-          )
+          ),
+          CustomMenu(ImageAssets: "assets/persegi.png",title: "perseGi",),
+          CustomMenu(ImageAssets: "assets/segitiga.png",title: "Segitiga",),
 
+
+        ],
+      ),
+    );
+  }
+}
+
+class CustomMenu extends StatelessWidget {
+  const CustomMenu({
+    super.key, required this.ImageAssets, required this.title,
+  });
+  final String ImageAssets;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(8),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      decoration: BoxDecoration(
+          color: Colors.green
+      ),
+      child: Column(
+        children: [
+          Image.asset("assets/segitiga.png",height: 110,),
+
+          Text("Segitiga"),
         ],
       ),
     );
