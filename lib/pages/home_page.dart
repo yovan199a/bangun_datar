@@ -1,3 +1,4 @@
+import 'package:bangun_datar_app/pages/PersegiPage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,23 +13,22 @@ class HomePage extends StatelessWidget {
             "Home Page",
             style: TextStyle(color: Colors.white),
           )),
-      body: Column(
+      body: ListView(
         children: [
-          Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            decoration: BoxDecoration(
-              color: Colors.green
-            ),
-            child: Column(
-              children: [
-                Image.asset("assets/persegi.png",height: 110,),
-                Text("Persegi"),
-              ],
-            ),
+
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
+            },
+          child: CustomMenu(ImageAssets: "assets/persegi.png",title: "persegi",)
           ),
-          CustomMenu(ImageAssets: "assets/persegi.png",title: "perseGi",),
-          CustomMenu(ImageAssets: "assets/segitiga.png",title: "Segitiga",),
+          Row(
+            children: [
+              Expanded(child: CustomMenu(ImageAssets: "assets/segitiga.png",title: "Segitiga",)),
+              Expanded(child: CustomMenu(ImageAssets: "assets/segitiga.png",title: "Segitiga",)),
+              Expanded(child: CustomMenu(ImageAssets: "assets/segitiga.png",title: "Segitiga",)),
+            ],
+          ),
 
 
         ],
@@ -54,9 +54,9 @@ class CustomMenu extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.asset("assets/segitiga.png",height: 110,),
+          Image.asset(ImageAssets,height: 110,),
 
-          Text("Segitiga"),
+          Text(title),
         ],
       ),
     );
